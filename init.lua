@@ -5,8 +5,6 @@
 
 local modname = "sama"
 local modpath = minetest.get_modpath(modname)
-local mg_name = minetest.get_mapgen_setting("mg_name")
-
 -- internationalization boilerplate
 local S = minetest.get_translator(minetest.get_current_modname())
 
@@ -17,7 +15,11 @@ local S = minetest.get_translator(minetest.get_current_modname())
 sama = {}
 
 -- Load the files
-assert(loadfile(modpath .. "/samantha.lua"))
-assert(loadfile(modpath .. "/behaviour.lua"))
-assert(loadfile(modpath .. "/brain.lua"))
-assert(loadfile(modpath .. "/api/api.lua"))(modpath, modname, S )
+assert(loadfile(modpath .. "/api/api.lua"))(modpath, modname, S)
+assert(loadfile(modpath .. "/samantha.lua"))()
+assert(loadfile(modpath .. "/behaviour.lua"))()
+assert(loadfile(modpath .. "/brain.lua"))()
+assert(loadfile(modpath .. "/hud.lua"))()
+assert(loadfile(modpath .. "/formspec.lua"))()
+assert(loadfile(modpath .. "/on_rightclick.lua"))()
+--assert(loadfile(modpath .. "/wardrove.lua"))(S)
